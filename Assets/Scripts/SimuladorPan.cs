@@ -73,18 +73,53 @@ public class SimuladorPan : MonoBehaviour
 
         float calidad = Mathf.Clamp(100 - errorTotal, 0, 100);
 
-        string resultado;
+        string resultado = "";
 
-        if (calidad > 90)
-            resultado = "Pan perfecto";
-        else if (calidad > 70)
-            resultado = "Buen pan";
-        else if (calidad > 50)
-            resultado = "Pan aceptable";
-        else if (calidad > 30)
-            resultado = "Pan mediocre";
-        else
-            resultado = "Pan fallido";
+        if (hidratacion < recetaActual.hidratacionIdeal - 5)
+            resultado += "Falta agua en la masa\n";
+
+        else if (hidratacion > recetaActual.hidratacionIdeal + 5)
+            resultado += "Exceso de agua en la masa\n";
+
+
+        if (amasado < recetaActual.amasadoIdeal - 2)
+            resultado += "Falta amasado\n";
+
+        else if (amasado > recetaActual.amasadoIdeal + 2)
+            resultado += "Demasiado amasado\n";
+
+
+        if (fermentacion < recetaActual.fermentacionIdeal - 5)
+            resultado += "Fermentación insuficiente\n";
+
+        else if (fermentacion > recetaActual.fermentacionIdeal + 5)
+            resultado += "Fermentación excesiva\n";
+
+
+        if (temperatura < recetaActual.temperaturaIdeal - 15)
+            resultado += "Temperatura del horno demasiado baja\n";
+
+        else if (temperatura > recetaActual.temperaturaIdeal + 15)
+            resultado += "Temperatura del horno demasiado alta\n";
+
+
+        if (coccion < recetaActual.coccionIdeal - 3)
+            resultado += "Falta tiempo de cocción\n";
+
+        else if (coccion > recetaActual.coccionIdeal + 3)
+            resultado += "Exceso de cocción\n";
+
+        if (resultado == "")
+        {
+            if (calidad > 90)
+                resultado = "Pan perfecto";
+            else if (calidad > 70)
+                resultado = "Buen pan";
+            else if (calidad > 50)
+                resultado = "Pan aceptable";
+            else
+                resultado = "Pan mediocre";
+        }
 
         textoCalidad.text = "Calidad: " + calidad.ToString("F0");
         textoResultado.text = resultado;
