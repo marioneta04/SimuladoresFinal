@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104cf0792db774246bcb0019addbfd22, type: 3}
   m_Name: RecetaMedialunas
   m_EditorClassIdentifier: 
-  nombre: 
-  hidratacionIdeal: 0
-  amasadoIdeal: 0
-  fermentacionIdeal: 0
-  temperaturaIdeal: 0
-  coccionIdeal: 0
+  nombre: Medialunas
+  hidratacionIdeal: 55
+  amasadoIdeal: 12
+  fermentacionIdeal: 90
+  temperaturaIdeal: 200
+  coccionIdeal: 15
