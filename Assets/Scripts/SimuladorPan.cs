@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 
@@ -121,7 +122,9 @@ public class SimuladorPan : MonoBehaviour
                 resultado = "Pan mediocre";
         }
 
-        textoCalidad.text = "Calidad: " + calidad.ToString("F0");
-        textoResultado.text = resultado;
+        PlayerPrefs.SetFloat("CalidadPan", calidad);
+        PlayerPrefs.SetString("ResultadoPan", resultado);
+
+        SceneManager.LoadScene(2);
     }
 }
